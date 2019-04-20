@@ -1,8 +1,8 @@
 Programowa realizuje funkcji nieliniowych
-jednostkowo-linniowy|w realizacji
-sinusoidalny|w realizacji
-pulsacyjny|w realizacji
-wyk³adniczy|w realizacji
+jednostkowo-linniowy|w realizacji    ->
+sinusoidalny|w realizacji   ->normalny wykres funkcji sinus z marametrami
+pulsacyjny|w realizacji      ->http://mathworld.wolfram.com/RectangleFunction.html
+wyk³adniczy|w realizacji     ->normalny wykres funckjci wyk³adniczej a^x
 
 
 GUI
