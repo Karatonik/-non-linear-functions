@@ -1,0 +1,10 @@
+Programowa realizuje funkcji nieliniowych
+jednostkowo-linniowy|w realizacji
+sinusoidalny|w realizacji
+pulsacyjny|w realizacji
+wyk³adniczy|w realizacji
+
+
+GUI
+fxml|w realizacji
+kontroler|w realizacji
