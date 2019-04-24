@@ -1,4 +1,4 @@
 package nonLinearFunctionsProject;
 
-public class Controller {
+public class EditionController {
 }
