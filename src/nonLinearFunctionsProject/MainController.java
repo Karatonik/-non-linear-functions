@@ -8,61 +8,56 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-public class MainController {
 
+public class MainController {
+    public static int select=0;
     @FXML
     Button sinButton,expButton,pulseButton,unitButton;
-//Zmienna nadzorujaca wybrana funkcje
-   public static int select=0;
+
     @FXML
     public void onActionSinButton(){
         select=1;
-        Stage stage = (Stage) this.sinButton.getScene().getWindow();
+      Stage  stage = (Stage) this.sinButton.getScene().getWindow();
         stage.close();
-        onActionButtons();
+        LoadFunction(stage);
     }
-
 
     @FXML
     public void onActionExpButton(){
         select=2;
-        Stage stage = (Stage) this.expButton.getScene().getWindow();
+        Stage  stage = (Stage) this.sinButton.getScene().getWindow();
         stage.close();
-        onActionButtons();
+        LoadFunction(stage);
     }
 
     @FXML
     public void onActionPulseButton(){
         select=3;
-        Stage stage = (Stage) this.pulseButton.getScene().getWindow();
+        Stage  stage = (Stage) this.sinButton.getScene().getWindow();
         stage.close();
-        onActionButtons();
+        LoadFunction(stage);
     }
 
     @FXML
     public void onActionUnitButton(){
         select=4;
-        Stage stage = (Stage) this.unitButton.getScene().getWindow();
+        Stage  stage = (Stage) this.sinButton.getScene().getWindow();
         stage.close();
-        onActionButtons();
+        LoadFunction(stage);
     }
-
-
-    public void onActionButtons(){
-        try {
-            Stage newStage = new Stage();
-            FXMLLoader newfxmlLoader = new FXMLLoader();
-            Pane root = newfxmlLoader.load(getClass().getResource("editionWindow.fxml").openStream());
-            EditionController editionController = newfxmlLoader.getController();
-
-            Scene newscene = new Scene(root);
-
-            newStage.setScene(newscene);
-            newStage.setTitle("Edition");
-            newStage.setResizable(false);
-            newStage.show();
-        } catch (IOException e) {
+    public void LoadFunction(Stage stage){
+        try{
+            FXMLLoader fxmlLoader=new FXMLLoader();
+            Pane root =fxmlLoader.load(getClass().getResource("editionWindow.fxml"));
+            EditionController editionController =fxmlLoader.getController();
+            Scene scene=new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Edition");
+            stage.setResizable(false);
+            stage.show();
+        }catch (IOException e){
             e.printStackTrace();
         }
+
     }
 }

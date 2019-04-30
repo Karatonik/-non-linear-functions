@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nonLinearFunctionsProject.EditionController">
    <children>
-       <Label fx:id="textFunction" layoutX="157.0" layoutY="14.0" prefHeight="122.0" prefWidth="187.0" text="sinus = a * sin(b * x) + c , exponenital = ax^b + c , pulse = xxx , unit-line = xxx" textAlignment="CENTER" wrapText="true" />
+       <Label fx:id="text" layoutX="157.0" layoutY="14.0" prefHeight="122.0" prefWidth="187.0" text="sinus = a * sin(b * x) + c , exponenital = ax^b + c , pulse = xxx , unit-line = xxx" textAlignment="CENTER" wrapText="true" />
        <TextField fx:id="aField" layoutX="157.0" layoutY="156.0" />
       <TextField fx:id="bField" layoutX="157.0" layoutY="215.0" />
       <TextField fx:id="cField" layoutX="157.0" layoutY="268.0" />
