@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static java.lang.Math.PI;
 import static java.lang.Math.sin;
 
 public class EditionController implements Initializable {
@@ -46,7 +47,7 @@ Label text;
 
     @FXML
     public void onActionShowButton(){
-        double a=1,b=1,c=1;
+        double a=1,b=1,c=0;
         //a=Double.valueOf(this.aField.getText());
        // b=Double.valueOf(this.bField.getText());
        // c=Double.valueOf(this.cField.getText()); //napiać regex
@@ -76,8 +77,8 @@ Label text;
     public void displaySinGraph(double a,double b,double c){
 sinPoints.removeAll();
 double y1=0;
-        for(int x=-100;x<100;x++) {
-            y1 = a * sin(b * x) + c;
+        for(  double x=-(2*PI);x<(2*PI);x=(x+0.1)) {
+            y1 = a * sin(b *x) + c;
             Points p= new Points(x,y1);
             sinPoints.add(p);
         }
