@@ -38,7 +38,7 @@ public class EditionController implements Initializable {
         }
     }
     @FXML
-    Button showButton;
+    Button showButton,goBack;
     @FXML
     TextField aField,bField,cField;
 @FXML
@@ -95,7 +95,12 @@ double y1=0;
     public void displayUnitGraph(double a,double b,double c){
     }
 
-
+    @FXML
+    public void onActionGoBack(){
+        Stage stage = (Stage) goBack.getScene().getWindow();
+        stage.close();
+        funInit("MainWindow.fxml","Non-linear functions");
+    }
 
 
 
