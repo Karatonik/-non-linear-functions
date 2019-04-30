@@ -14,7 +14,9 @@ public class FunctionController  implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         XYChart.Series series=new XYChart.Series();
         for(int x=0;x<200;x++) {
-            series.getData().add(new XYChart.Data(EditionController.sinPoints.get(x).x,EditionController.sinPoints.get(x).y));
+            Double x1=EditionController.sinPoints.get(x).x;
+            String x2=x1.toString();
+            series.getData().add(new XYChart.Data(x2,EditionController.sinPoints.get(x).y));
         }
         Graph.getData().addAll(series);
 
