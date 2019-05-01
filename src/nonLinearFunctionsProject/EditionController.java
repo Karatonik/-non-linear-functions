@@ -30,6 +30,8 @@ public class EditionController implements Initializable {
     Label text;
     @FXML
      Label test;
+    @FXML
+    private Button goBack;
 
 
     public void initialize(URL url, ResourceBundle rb) {
@@ -50,20 +52,20 @@ public class EditionController implements Initializable {
 
     @FXML
     public void onActionShowButton() {
-        Double a ;
-               Double b ;
-               Double c ;
-        Double maxI;
-        Double minI;
-        Double quanPI;
+        Double a=1.0 ;
+               Double b=1.0 ;
+               Double c =1.0;
+        Double maxI=1.0;
+        Double minI=1.0;
+        Double quanPI=1.0;
 
-        a=Double.valueOf(this.aField.getText());
-         b=Double.valueOf(this.bField.getText());
-         c=Double.valueOf(this.cField.getText()); //napiać regex
-        maxI=Double.valueOf(this.max.getText());
-        minI=Double.valueOf(this.min.getText());
-        quanPI=Double.valueOf(this.quanPoints.getText());
-        test.setText(b.toString());
+       // a=Double.valueOf(this.aField.getText());
+        // b=Double.valueOf(this.bField.getText());
+       //  c=Double.valueOf(this.cField.getText()); //napiać regex
+       // maxI=Double.valueOf(this.max.getText());
+       // minI=Double.valueOf(this.min.getText());
+       // quanPI=Double.valueOf(this.quanPoints.getText());
+     //   test.setText(b.toString());
         switch (MainController.select) {
             case 1:
                 displaySinGraph(a, b, c, maxI, minI, quanPI);
@@ -78,7 +80,7 @@ public class EditionController implements Initializable {
                 //okno funckji pulse
                 break;
             case 4:
-                displayUnitGraph(a, b, c, maxI, minI,quanPI);
+               displayUnitGraph(a, b, c, maxI, minI,quanPI);
                 //okno funckji unite
                 break;
         }
@@ -90,8 +92,8 @@ public class EditionController implements Initializable {
     public void displaySinGraph(double a, double b, double c,double maxI,double minI,double quanPI) {
         sinPoints.removeAll();
         double y1 = 0;
-        //for (double x = -(2 * PI); x < (2 * PI); x = (x + 0.1)) {
-        (double x = minI;x<maxI; x = (x +quanPI)) {
+        for (double x = -(2 * PI); x < (2 * PI); x = (x + 0.1)) {
+        //(double x = minI;x<maxI; x = (x +quanPI)) {
             y1 = a * sin(b * x) + c;
             Points p = new Points(x, y1);
             sinPoints.add(p);
@@ -148,4 +150,18 @@ public class EditionController implements Initializable {
         }
 
     }
+
+    public void goBackAction(){
+        Stage stage =(Stage) goBack.getScene().getWindow();
+        stage.close();
+        try {
+            Pane root = FXMLLoader.load(getClass().getResource("MainWindow.fxml"));
+            stage.setTitle("Non-linear functions");
+            stage.setScene(new Scene(root, 500, 400));
+            stage.show();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
 }
