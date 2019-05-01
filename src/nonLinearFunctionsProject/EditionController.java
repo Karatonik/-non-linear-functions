@@ -36,7 +36,7 @@ public class EditionController implements Initializable {
     static double value=0;
     @FXML
     private Button auto;
-static boolean autoValue=false;
+static boolean autoValue=true;
     Double a=1.0 ;
     Double b=1.0 ;
     Double c =0.0;
@@ -64,7 +64,7 @@ static boolean autoValue=false;
     @FXML
     public void onActionShowButton() {
 
-if(autoValue=false) {
+if(autoValue==false) {
     a = Double.valueOf(this.aField.getText());
     b = Double.valueOf(this.bField.getText());
     c = Double.valueOf(this.cField.getText()); //napiać regex
@@ -72,7 +72,7 @@ if(autoValue=false) {
     minI = Double.valueOf(this.min.getText());
     quanPI = Double.valueOf(this.quanPoints.getText());
     test.setText(b.toString());
-    value = (maxI - minI);
+    value = (maxI - minI)/quanPI;
 }else{
     a=1.0 ;
      b=1.0 ;
@@ -108,20 +108,21 @@ if(autoValue=false) {
     public void displaySinGraph(double a, double b, double c,double maxI,double minI,double quanPI) {
         sinPoints.removeAll();
         double y1 = 0;
-        if(autoValue=false){
+        if(autoValue==false){
             for(double x = minI;x<=maxI; x = (x +quanPI)) {
-                y1 = a * sin(b * x) + c;
+                y1 = (a * sin(b * x)) + c;
                 Points p = new Points(x, y1);
                 sinPoints.add(p);
-                System.out.println(x + "  " + y1);
+                System.out.println("non auto"+x + "  " + y1);
             }
-        }else
-        for (double x = -(2 * PI); x < (2 * PI); x = (x + 0.1)) {
+        }else {
+            for (double x = -(2 * PI); x < (2 * PI); x = (x + 0.1)) {
 
-            y1 = a * sin(b * x) + c;
-            Points p = new Points(x,y1);
-            sinPoints.add(p);
-            System.out.println(x+"  "+y1);
+                y1 = (a * sin(b * x)) + c;
+                Points p = new Points(x, y1);
+                sinPoints.add(p);
+                System.out.println("auto" + x + "  " + y1);
+            }
         }
         funInit("functionGraph.fxml", "Sin");
 
@@ -192,9 +193,11 @@ if(autoValue=false) {
         if(this.auto.getText().equals("Auto")){
             this.auto.setText("NonAuto");
             autoValue=false;
+            System.out.println("false");
         }else{
             this.auto.setText("Auto");
             autoValue=true;
+            System.out.println("true");
         }
     }
 

@@ -45,15 +45,13 @@ public class FunctionController implements Initializable {
     public void sinGraph() {
         XYChart.Series series = new XYChart.Series();
         Double set;
-        int inc;
-        if(EditionController.autoValue=false){
-            set =EditionController.value;
-            inc=1;
+        if(EditionController.autoValue){
+            set=50.0;
+
         }else{
-            set=400.0;
-inc=1;
+            set =EditionController.value;
         }
-        for (int x = 0; x < set; x=x+inc) {
+        for (int x = 0; x <= set; x++) {
             Double x1 = EditionController.sinPoints.get(x).x;
             String x2 = x1.toString();
             series.getData().add(new XYChart.Data(x2, EditionController.sinPoints.get(x).y));
