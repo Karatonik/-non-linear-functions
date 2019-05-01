@@ -14,21 +14,31 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
-import static java.lang.Math.PI;
-import static java.lang.Math.sin;
+import static java.lang.Math.*;
 
 public class EditionController implements Initializable {
+
+    public static ObservableList<Points> sinPoints = FXCollections.observableArrayList();
+
+    @FXML
+    Button showButton;
+    @FXML
+    TextField aField, bField, cField,quanPoints,max,min;
+    @FXML
+    Label text;
+    @FXML
+     Label test;
+
+
     public void initialize(URL url, ResourceBundle rb) {
         switch (MainController.select) {
             case 1:
                 text.setText("sinus = a * sin(b * x) + c ");
                 break;
             case 2:
-                text.setText("exponenital = ax^b + c ");
+                text.setText("exponenital = ab^x + c ");
                 break;
             case 3:
                 text.setText(" pulse = xxx");
@@ -37,35 +47,38 @@ public class EditionController implements Initializable {
                 text.setText("unit-line = xxx");
         }
     }
-    @FXML
-    Button showButton,goBack;
-    @FXML
-    TextField aField,bField,cField;
-@FXML
-Label text;
-
 
     @FXML
-    public void onActionShowButton(){
-        double a=1,b=1,c=0;
-        //a=Double.valueOf(this.aField.getText());
-       // b=Double.valueOf(this.bField.getText());
-       // c=Double.valueOf(this.cField.getText()); //napiać regex
-        switch (MainController.select){
+    public void onActionShowButton() {
+        Double a ;
+               Double b ;
+               Double c ;
+        Double maxI;
+        Double minI;
+        Double quanPI;
+
+        a=Double.valueOf(this.aField.getText());
+         b=Double.valueOf(this.bField.getText());
+         c=Double.valueOf(this.cField.getText()); //napiać regex
+        maxI=Double.valueOf(this.max.getText());
+        minI=Double.valueOf(this.min.getText());
+        quanPI=Double.valueOf(this.quanPoints.getText());
+        test.setText(b.toString());
+        switch (MainController.select) {
             case 1:
-                displaySinGraph(a,b,c);
+                displaySinGraph(a, b, c, maxI, minI, quanPI);
                 //okno funkcji sinus
                 break;
             case 2:
-                displayExpGraph(a,b,c);
+                displayExpGraph(a, b, c, maxI, minI,quanPI);
                 //okno funkcji exp
                 break;
             case 3:
-                displayPulseGraph(a,b,c);
+                displayPulseGraph(a, b, c, maxI, minI,quanPI);
                 //okno funckji pulse
                 break;
             case 4:
-                displayUnitGraph(a,b,c);
+                displayUnitGraph(a, b, c, maxI, minI,quanPI);
                 //okno funckji unite
                 break;
         }
@@ -73,50 +86,64 @@ Label text;
 
 
 
-   public static ObservableList<Points>sinPoints=FXCollections.observableArrayList();
-    public void displaySinGraph(double a,double b,double c){
-sinPoints.removeAll();
-double y1=0;
-        for(  double x=-(2*PI);x<(2*PI);x=(x+0.1)) {
-            y1 = a * sin(b *x) + c;
-            Points p= new Points(x,y1);
+
+    public void displaySinGraph(double a, double b, double c,double maxI,double minI,double quanPI) {
+        sinPoints.removeAll();
+        double y1 = 0;
+        //for (double x = -(2 * PI); x < (2 * PI); x = (x + 0.1)) {
+        (double x = minI;x<maxI; x = (x +quanPI)) {
+            y1 = a * sin(b * x) + c;
+            Points p = new Points(x, y1);
             sinPoints.add(p);
         }
-        funInit("functionGraph.fxml","Sin");
-
+        funInit("functionGraph.fxml", "Sin");
 
 
     }
-    public void displayExpGraph(double a,double b,double c){
+
+    public void displayExpGraph(double a, double b, double c,double maxI,double minI,double quanPI) {
+
+        sinPoints.removeAll();
+        double y1 = 0;
+        for (int x =-10; x <= 10; x++) {
+            y1 = a*pow(b,x) +c;
+            Points p = new Points(x, y1);
+            sinPoints.add(p);
+        }
+        funInit("functionGraph.fxml", "Exp");
+
+
     }
-    public void displayPulseGraph(double a,double b,double c){
 
-    }
-    public void displayUnitGraph(double a,double b,double c){
-    }
+    public void displayPulseGraph(double a, double b, double c,double maxI,double minI,double quanPI) {
 
-    @FXML
-    public void onActionGoBack(){
-        Stage stage = (Stage) goBack.getScene().getWindow();
-        stage.close();
-        funInit("MainWindow.fxml","Non-linear functions");
+
+
+        funInit("functionGraph.fxml", "Exp");
     }
 
+    public void displayUnitGraph(double a, double b, double c,double maxI,double minI,double quanPI) {
 
 
-    public void funInit(String fxml ,String name){
 
-        try{
-            Stage stage=new Stage();
-            FXMLLoader fxmlLoader=new FXMLLoader();
-            Pane root =fxmlLoader.load(getClass().getResource(fxml));
-            FunctionController functionController =fxmlLoader.getController();
-            Scene scene=new Scene(root);
+
+        funInit("functionGraph.fxml", "Exp");
+    }
+
+
+    public void funInit(String fxml, String name) {
+
+        try {
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            Pane root = fxmlLoader.load(getClass().getResource(fxml));
+            FunctionController functionController = fxmlLoader.getController();
+            Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle(name);
             stage.setResizable(false);
             stage.show();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
 

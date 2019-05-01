@@ -15,6 +15,13 @@
       <Label layoutX="120.0" layoutY="220.0" text="b =" />
       <Label layoutX="121.0" layoutY="273.0" text="c =" />
       <Button fx:id="showButton" layoutX="218.0" layoutY="335.0" mnemonicParsing="false" onAction="#onActionShowButton" text="SHOW" />
+<<<<<<< HEAD
+      <TextField fx:id="quanPoints" layoutX="344.0" layoutY="238.0" promptText="Maksymana wartość" />
+      <TextField fx:id="max" layoutX="344.0" layoutY="268.0" promptText="Minimalna wartość" />
+      <TextField fx:id="min" layoutX="344.0" layoutY="300.0" promptText="Przesunięcie" />
+      <Label fx:id="test" layoutX="37.0" layoutY="90.0" text="sprawdz" />
+=======
       <Button fx:id="goBack" layoutX="426.0" mnemonicParsing="false" onAction="#onActionGoBack" text="Go Back" />
+>>>>>>> be80cae5cb53209602f74dece28615d46c843547
    </children>
 </AnchorPane>
