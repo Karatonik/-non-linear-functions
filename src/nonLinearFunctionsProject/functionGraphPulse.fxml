@@ -5,7 +5,7 @@
 <?import javafx.scene.chart.ScatterChart?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nonLinearFunctionsProject.FunctionController">
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nonLinearFunctionsProject.FunctionController">
    <children>
       <ScatterChart fx:id="GraphPulse" prefHeight="900.0" prefWidth="1600.0">
         <xAxis>

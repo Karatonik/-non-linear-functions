@@ -55,7 +55,8 @@ public class EditionController implements Initializable {
             case 3:
                 text.setText("pulse = 1(t-t0)");
                     aField.setPromptText("co ile skok");
-                    bField.setPromptText("jak długi skok");
+                    bField.setPromptText("jak długi skok ( wyskokość)");
+                    cField.setPromptText("brak odwołania");
                 break;
             case 4:
                 text.setText("unit-line = xxx");
@@ -106,7 +107,7 @@ public class EditionController implements Initializable {
 
 
     private void displaySinGraph(double a, double b, double c, double maxI, double minI, double quanPI) {
-        sinPoints.removeAll();
+        sinPoints.clear();
         double y1 = 0.0;
         if (!autoValue) {
             for (double x = minI; x <= maxI; x = (x + quanPI)) {
@@ -134,7 +135,7 @@ public class EditionController implements Initializable {
 
     private void displayExpGraph(double a, double b, double c, double maxI, double minI, double quanPI) {
         double y1 = 0;
-        sinPoints.removeAll();
+        sinPoints.clear();
         if (!autoValue) {
             for (double x = minI; x <= maxI; x = x + quanPI) {
                 y1 = (a * pow(b, x)) + c;
@@ -157,27 +158,57 @@ public class EditionController implements Initializable {
 
     private void displayPulseGraph(double a, double b, double c, double maxI, double minI, double quanPI) {
         double y1 = 0;
-        sinPoints.removeAll();
-        b = 1;
-        Points p;
-        for (double x = 0; x <= 10; x+=0.1) {
-            if(x%2<1){
-                y1=1;
-                 p = new Points(x, y1);
-            }else{
-                y1=0;
-                 p = new Points(x, y1);
+        sinPoints.clear();
+        if (autoValue) {
+            b = 1;
+            Points p;
+            for (double x = 0; x <= 10; x += 0.1) {
+                if (x %2 < 1) {
+                    y1 = 1;
+                    p = new Points(x, y1);
+                } else {
+                    y1 = 0;
+                    p = new Points(x, y1);
+                }
+                System.out.println("Auto" + x + "  " + y1 + " " + x % 2);
+
+                sinPoints.add(p);
             }
-            System.out.println("Auto" + x + "  " + y1+" "+x%2);
+        }
+        else{
+            b = 1;
+            Points p;
+            for (double x = minI; x <= maxI; x +=quanPI) {
+                if (x%a <(a/2) ) {
+                    y1 = b;
+                    p = new Points(x, y1);
+                } else {
+                    y1 = 0;
+                    p = new Points(x, y1);
+                }
+                System.out.println("nonAuto" + x + "  " + y1 + " " + x % 2);
 
-            sinPoints.add(p);}
-
+                sinPoints.add(p);
+            }
+        }
 
         funInit("functionGraphPulse.fxml", "Exp");
     }
 
     private void displayUnitGraph(double a, double b, double c, double maxI, double minI, double quanPI) {
-
+        Points p;
+        sinPoints.clear();
+        if (!autoValue) {
+           p=new Points(minI,(a*minI)+b);
+          sinPoints.add(p);
+             p=new Points(minI,(a*minI)+b);
+            sinPoints.add(p);
+        } else {
+                p=new Points(0,0);
+                sinPoints.add(p);
+                p=new Points(10,10);
+                sinPoints.add(p);
+        }
 
         funInit("functionGraph.fxml", "unite");
     }
