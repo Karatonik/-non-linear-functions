@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -53,13 +54,13 @@ public class EditionController implements Initializable {
                 text.setText("exponenital = ab^x + c ");
                 break;
             case 3:
-                text.setText("pulse = 1(t-t0)");
+                text.setText("pulse = 1(t-t0)"); //dla wiekszych od 0;
                     aField.setPromptText("co ile skok");
                     bField.setPromptText("jak długi skok ( wyskokość)");
                     cField.setPromptText("brak odwołania");
                 break;
             case 4:
-                text.setText("unit-line = xxx");
+                text.setText("unit-line = ax *b");
         }
     }
 
@@ -75,9 +76,11 @@ public class EditionController implements Initializable {
             }
             maxI = Double.valueOf(this.max.getText());
             minI = Double.valueOf(this.min.getText());
-            quanPI = Double.valueOf(this.quanPoints.getText());
-            test.setText(b.toString());
-            value = (maxI - minI) / quanPI;
+            if(MainController.select!=4) {
+                quanPI = Double.valueOf(this.quanPoints.getText());
+                // test.setText(b.toString());
+                value = (maxI - minI) / quanPI;
+            }
         } else {
             a = 1.0;
             b = 1.0;
@@ -162,7 +165,6 @@ public class EditionController implements Initializable {
         double y1 = 0;
         sinPoints.clear();
         if (autoValue) {
-            b = 1;
             Points p;
             for (double x = 0; x <= 10; x += 0.1) {
                 if (x %2 < 1) {
@@ -178,7 +180,6 @@ public class EditionController implements Initializable {
             }
         }
         else{
-            b = 1;
             Points p;
             for (double x = minI; x <= maxI; x +=quanPI) {
                 if (x%a <(a/2) ) {
@@ -199,11 +200,14 @@ public class EditionController implements Initializable {
 
     private void displayUnitGraph(double a, double b, double c, double maxI, double minI, double quanPI) {
         Points p;
+        double y1;
         sinPoints.clear();
         if (!autoValue) {
-           p=new Points(minI,(a*minI)+b);
+            y1=(a*minI)+b;
+           p=new Points(minI,y1);
           sinPoints.add(p);
-             p=new Points(minI,(a*minI)+b);
+          y1=(a*maxI)+b;
+             p=new Points(maxI,y1);
             sinPoints.add(p);
         } else {
                 p=new Points(0,0);
@@ -257,6 +261,11 @@ public class EditionController implements Initializable {
             autoValue = true;
             System.out.println("true");
         }
+    }
+    public void nonAutoTextFieldEvent(){
+        this.auto.setText("NonAuto");
+        autoValue = false;
+        System.out.println("false");
     }
 
 }

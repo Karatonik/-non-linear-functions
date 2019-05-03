@@ -97,7 +97,7 @@ public class FunctionController implements Initializable {
 
     public void unitGraph() {
         XYChart.Series series = new XYChart.Series();
-        for (int x = 0; x <=2; x++) {
+        for (int x = 0; x <2; x++) {
             Double x1 = EditionController.sinPoints.get(x).x;
             String x2 = x1.toString();
             series.getData().add(new XYChart.Data(x2, EditionController.sinPoints.get(x).y));
