@@ -2,10 +2,7 @@ package nonLinearFunctionsProject;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
+import javafx.scene.chart.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,6 +15,8 @@ public class FunctionController implements Initializable {
     private CategoryAxis x;
     @FXML
     private NumberAxis y;
+    @FXML
+    private ScatterChart<?, ?> GraphPulse;
 
     public void initialize(URL url, ResourceBundle rb) {
         switch (MainController.select) {
@@ -92,7 +91,7 @@ public class FunctionController implements Initializable {
             String x2 = x1.toString();
             series.getData().add(new XYChart.Data(x2, EditionController.sinPoints.get(x).y));
         }
-        Graph.getData().addAll(series);
+        GraphPulse.getData().addAll(series);
 
     }
 

@@ -166,14 +166,14 @@ public class EditionController implements Initializable {
                  p = new Points(x, y1);
             }else{
                 y1=0;
-                 p = new Points(x-0.1, y1);
+                 p = new Points(x, y1);
             }
             System.out.println("Auto" + x + "  " + y1+" "+x%2);
 
             sinPoints.add(p);}
 
 
-        funInit("functionGraph.fxml", "Exp");
+        funInit("functionGraphPulse.fxml", "Exp");
     }
 
     private void displayUnitGraph(double a, double b, double c, double maxI, double minI, double quanPI) {
