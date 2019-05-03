@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nonLinearFunctionsProject.FunctionController">
+   <children>
+      <LineChart fx:id="Graph" cache="true" cacheHint="QUALITY" createSymbols="false" mouseTransparent="true" prefHeight="900.0" prefWidth="1600.0" verticalGridLinesVisible="false">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" fx:id="x" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="y" side="LEFT" />
+        </yAxis>
+         <effect>
+            <Glow level="0.18" />
+         </effect>
+      </LineChart>
+   </children>
+</AnchorPane>
