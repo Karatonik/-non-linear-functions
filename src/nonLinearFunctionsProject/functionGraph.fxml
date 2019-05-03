@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nonLinearFunctionsProject.FunctionController">
    <children>
-      <LineChart fx:id="Graph" cache="true" cacheHint="QUALITY" createSymbols="false" prefHeight="900.0" prefWidth="1600.0">
+      <LineChart fx:id="Graph" cache="true" cacheHint="QUALITY" createSymbols="false" prefHeight="900.0" prefWidth="1600.0" verticalGridLinesVisible="false">
         <xAxis>
           <CategoryAxis side="BOTTOM" fx:id="x" />
         </xAxis>

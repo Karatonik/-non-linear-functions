@@ -62,7 +62,14 @@ public class FunctionController implements Initializable {
 
     public void expGraph() {
         XYChart.Series series = new XYChart.Series();
-        for (int x = 0; x <=20; x++) {
+        Double set;
+        if(EditionController.autoValue){
+            set=10.0;
+
+        }else{
+            set =EditionController.value;
+        }
+        for (int x = 0; x <=set; x++) {
             Double x1 = EditionController.sinPoints.get(x).x;
             String x2 = x1.toString();
             series.getData().add(new XYChart.Data(x2, EditionController.sinPoints.get(x).y));
@@ -72,6 +79,20 @@ public class FunctionController implements Initializable {
     }
 
     public void pulseGraph() {
+        XYChart.Series series = new XYChart.Series();
+        Double set;
+        if(EditionController.autoValue){
+            set=100.0;
+
+        }else{
+            set =EditionController.value;
+        }
+        for (int x = 0; x <=set; x++) {
+            Double x1 = EditionController.sinPoints.get(x).x;
+            String x2 = x1.toString();
+            series.getData().add(new XYChart.Data(x2, EditionController.sinPoints.get(x).y));
+        }
+        Graph.getData().addAll(series);
 
     }
 
