@@ -1,28 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.181" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nonLinearFunctionsProject.EditionController">
+<AnchorPane prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nonLinearFunctionsProject.EditionController">
    <children>
-       <Label fx:id="text" layoutX="157.0" layoutY="14.0" prefHeight="122.0" prefWidth="187.0" text="sinus = a * sin(b * x) + c , exponenital = ax^b + c , pulse = xxx , unit-line = xxx" textAlignment="CENTER" wrapText="true" />
-       <TextField fx:id="aField" layoutX="46.0" layoutY="156.0" onAction="#nonAutoTextFieldEvent" />
-      <TextField fx:id="bField" layoutX="46.0" layoutY="187.0" onAction="#nonAutoTextFieldEvent" />
-      <TextField fx:id="cField" layoutX="46.0" layoutY="218.0" onAction="#nonAutoTextFieldEvent" />
-      <Label layoutX="28.0" layoutY="160.0" text="a =" />
-      <Label layoutX="27.0" layoutY="191.0" text="b =" />
-      <Label layoutX="28.0" layoutY="222.0" text="c =" />
-      <Button fx:id="showButton" layoutX="195.0" layoutY="301.0" mnemonicParsing="false" onAction="#onActionShowButton" prefHeight="58.0" prefWidth="84.0" text="SHOW" />
-      <TextField fx:id="max" layoutX="294.0" layoutY="156.0" onAction="#nonAutoTextFieldEvent" promptText="Maksymana wartość" />
-      <TextField fx:id="min" layoutX="294.0" layoutY="187.0" onAction="#nonAutoTextFieldEvent" promptText="Minimalna wartość" />
-      <TextField fx:id="quanPoints" layoutX="294.0" layoutY="218.0" onAction="#nonAutoTextFieldEvent" promptText="Przesunięcie" />
-      <Label fx:id="test" layoutX="37.0" layoutY="90.0" text="sprawdz" />
-      <Button fx:id="goBack" layoutX="426.0" layoutY="14.0" mnemonicParsing="false" onAction="#goBackAction" text="Go Back" />
-      <Label layoutX="269.0" layoutY="160.0" text="Max" />
-      <Label layoutX="269.0" layoutY="191.0" text="Min" />
-      <Label layoutX="225.0" layoutY="222.0" text="Przesunięcie" />
-      <Button fx:id="auto" layoutX="55.0" layoutY="255.0" mnemonicParsing="false" onAction="#autoAction" text="Auto" />
+      <VBox prefHeight="719.0" prefWidth="1218.0">
+         <children>
+            <HBox prefHeight="181.0" prefWidth="1218.0">
+               <children>
+                   <Label fx:id="text" alignment="CENTER" contentDisplay="CENTER" prefHeight="143.0" prefWidth="1137.0" text="sinus = a * sin(b * x) + c , exponenital = ax^b + c , pulse = xxx , unit-line = xxx" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Book Antiqua" size="39.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="goBack" mnemonicParsing="false" onAction="#goBackAction" prefHeight="98.0" prefWidth="151.0" text="Go Back">
+                     <HBox.margin>
+                        <Insets bottom="80.0" left="20.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="622.0" prefWidth="1218.0">
+               <children>
+                  <VBox prefHeight="581.0" prefWidth="280.0">
+                     <children>
+                        <Label fx:id="Labelb" alignment="CENTER" contentDisplay="CENTER" prefHeight="193.0" prefWidth="214.0" text="b =">
+                           <font>
+                              <Font name="Berlin Sans FB" size="40.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="Labela" alignment="CENTER" prefHeight="182.0" prefWidth="214.0" text="a =">
+                           <font>
+                              <Font name="Berlin Sans FB" size="40.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelc" alignment="CENTER" prefHeight="178.0" prefWidth="214.0" text="c =">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="622.0" prefWidth="300.0">
+                     <children>
+                         <TextField fx:id="aField" onAction="#nonAutoTextFieldEvent" prefHeight="40.0" prefWidth="214.0">
+                           <VBox.margin>
+                              <Insets bottom="80.0" top="70.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="bField" onAction="#nonAutoTextFieldEvent" prefHeight="40.0" prefWidth="214.0">
+                           <VBox.margin>
+                              <Insets bottom="80.0" top="70.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="cField" onAction="#nonAutoTextFieldEvent" prefHeight="40.0" prefWidth="214.0">
+                           <VBox.margin>
+                              <Insets bottom="70.0" top="70.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="622.0" prefWidth="280.0">
+                     <children>
+                        <Label fx:id="labelmax" alignment="CENTER" prefHeight="200.0" prefWidth="178.0" text="Max">
+                           <font>
+                              <Font name="Berlin Sans FB" size="40.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelmin" alignment="CENTER" prefHeight="200.0" prefWidth="178.0" text="Min">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelquan" alignment="CENTER" prefHeight="142.0" prefWidth="178.0" text="Przesunięcie">
+                           <font>
+                              <Font name="Berlin Sans FB" size="29.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="622.0" prefWidth="300.0">
+                     <children>
+                        <TextField fx:id="max" onAction="#nonAutoTextFieldEvent" prefHeight="40.0" prefWidth="156.0" promptText="Maksymana wartość">
+                           <VBox.margin>
+                              <Insets bottom="80.0" top="70.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="min" onAction="#nonAutoTextFieldEvent" prefHeight="40.0" prefWidth="156.0" promptText="Minimalna wartość">
+                           <VBox.margin>
+                              <Insets bottom="80.0" top="70.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="quanPoints" onAction="#nonAutoTextFieldEvent" prefHeight="41.0" prefWidth="156.0" promptText="Przesunięcie">
+                           <VBox.margin>
+                              <Insets bottom="70.0" top="70.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="581.0" prefWidth="458.0">
+                     <children>
+                        <Label fx:id="test" prefHeight="52.0" prefWidth="318.0" text="sprawdz">
+                           <VBox.margin>
+                              <Insets bottom="120.0" left="30.0" right="30.0" top="50.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="41.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="auto" alignment="CENTER" mnemonicParsing="false" onAction="#autoAction" prefHeight="120.0" prefWidth="378.0" text="Auto">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="showButton" mnemonicParsing="false" onAction="#onActionShowButton" prefHeight="440.0" prefWidth="378.0" text="SHOW">
+                           <VBox.margin>
+                              <Insets bottom="30.0" left="30.0" right="30.0" top="100.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Bell MT" size="63.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

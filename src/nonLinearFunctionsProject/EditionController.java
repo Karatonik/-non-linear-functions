@@ -36,6 +36,10 @@ public class EditionController implements Initializable {
     static double value = 0;
     @FXML
     private Button auto;
+
+    @FXML
+    private Label Labela,Labelb,labelc,labelmax,labelmin,labelquan;
+
     static boolean autoValue = true;
     Double a = 1.0;
     Double b = 1.0;
@@ -57,10 +61,15 @@ public class EditionController implements Initializable {
                 text.setText("pulse = 1(t-t0)"); //dla wiekszych od 0;
                     aField.setPromptText("co ile skok");
                     bField.setPromptText("jak długi skok ( wyskokość)");
-                    cField.setPromptText("brak odwołania");
+                    cField.setVisible(false);
+                quanPoints.setVisible(false);
+                labelc.setVisible(false);
+                labelquan.setVisible(false);
                 break;
             case 4:
                 text.setText("unit-line = ax *b");
+                cField.setVisible(false);
+                labelc.setVisible(false);
         }
     }
 
@@ -244,7 +253,7 @@ public class EditionController implements Initializable {
         try {
             Pane root = FXMLLoader.load(getClass().getResource("MainWindow.fxml"));
             stage.setTitle("Non-linear functions");
-            stage.setScene(new Scene(root, 500, 400));
+            stage.setScene(new Scene(root, 800, 420));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
