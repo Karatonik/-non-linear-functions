@@ -123,25 +123,39 @@ public class EditionController implements Initializable {
             this.test.setText("Nie poprawne dane");
         } else {
             this.test.setText("poprawne");
-            switch (MainController.select) {
-                case 1:
-                    displaySinGraph(a, b, c, maxI, minI, quanPI);
-                    //okno funkcji sinus
-                    break;
-                case 2:
-                    displayExpGraph(a, b, c, maxI, minI, quanPI);
-                    //okno funkcji exp
-                    break;
-                case 3:
-                    displayPulseGraph(a, b, c, maxI, minI, quanPI);
-                    //okno funckji pulse
-                    break;
-                case 4:
-                    displayUnitGraph(a, b, c, maxI, minI, quanPI);
-                    //okno funckji unite
-                    break;
+            if (value > 30000) {
+                this.test.setText("Za duża ilośc punktów");
+            } else {
+                if (maxI < minI) {
+                    this.test.setText("max<min");
+                } else {
+                    switch (MainController.select) {
+                        case 1:
+                            displaySinGraph(a, b, c, maxI, minI, quanPI);
+                            //okno funkcji sinus
+                            break;
+                        case 2:
+                            displayExpGraph(a, b, c, maxI, minI, quanPI);
+                            //okno funkcji exp
+                            break;
+                        case 3:
+                            displayPulseGraph(a, b, c, maxI, minI, quanPI);
+                            //okno funckji pulse
+                            break;
+                        case 4:
+                            displayUnitGraph(a, b, c, maxI, minI, quanPI);
+                            //okno funckji unite
+                            break;
+                    }
+                }
             }
         }
+        this.max.setText("");
+        this.aField.setText("");
+        this.bField.setText("");
+        this.cField.setText("");
+        this.min.setText("");
+        this.quanPoints.setText("");
     }
 
 
