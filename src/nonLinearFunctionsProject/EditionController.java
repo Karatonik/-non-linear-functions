@@ -89,23 +89,29 @@ public class EditionController implements Initializable {
                 maxI = Double.valueOf(this.max.getText());
                 minI = Double.valueOf(this.min.getText());
                 ver = true;
+                System.out.println("a b max min true");
             } else {
                 ver = false;
+                System.out.println("a b max min false");
             }
             if (MainController.select == 1 || MainController.select == 2) {
                 if (regex.Verification(this.cField.getText())) {
                     c = Double.valueOf(this.cField.getText());
                     ver = true;
+                    System.out.println("c true");
                 } else {
                     ver = false;
+                    System.out.println("c false");
                 }
             }
-            if (MainController.select != 4) {
+            if (MainController.select != 3) {
                 if (regex.Verification(this.quanPoints.getText())) {
                     quanPI = Double.valueOf(this.quanPoints.getText());
                     ver = true;
+                    System.out.println("quan true");
                 } else {
                     ver = false;
+                    System.out.println("quan false");
                 }
             }
             value = (maxI - minI) / quanPI;
@@ -121,8 +127,10 @@ public class EditionController implements Initializable {
         }
         if (!ver) {
             this.test.setText("Nie poprawne dane");
+            System.out.println("ver true");
         } else {
             this.test.setText("poprawne");
+            System.out.println("ver false");
             if (value > 30000) {
                 this.test.setText("Za duża ilośc punktów");
             } else {
@@ -170,7 +178,7 @@ public class EditionController implements Initializable {
                 }
                 Points p = new Points(x, y1);
                 sinPoints.add(p);
-                System.out.println("non auto" + x + "  " + y1);
+                //System.out.println("non auto" + x + "  " + y1);
             }
         } else {
             for (double x = -(2 * PI); x < (2 * PI); x = (x + 0.1)) {
@@ -178,7 +186,7 @@ public class EditionController implements Initializable {
                 y1 = (a * sin(b * x)) + c;
                 Points p = new Points(x, y1);
                 sinPoints.add(p);
-                System.out.println("auto" + x + "  " + y1);
+                //System.out.println("auto" + x + "  " + y1);
             }
         }
         funInit("functionGraph.fxml", "Sin");
@@ -192,7 +200,7 @@ public class EditionController implements Initializable {
         if (!autoValue) {
             for (double x = minI; x <= maxI; x = x + quanPI) {
                 y1 = (a * pow(b, x)) + c;
-                System.out.println("nonAuto" + x + "  " + y1);
+               // System.out.println("nonAuto" + x + "  " + y1);
                 Points p = new Points(x, y1);
                 sinPoints.add(p);
             }
@@ -200,7 +208,7 @@ public class EditionController implements Initializable {
             b = 2;
             for (int x = 0; x <= 10; x++) {
                 y1 = (a * pow(b, x)) + c;
-                System.out.println("Auto" + x + "  " + y1);
+               // System.out.println("Auto" + x + "  " + y1);
                 Points p = new Points(x, y1);
                 sinPoints.add(p);
             }
@@ -222,7 +230,7 @@ public class EditionController implements Initializable {
                     y1 = 0;
                     p = new Points(x, y1);
                 }
-                System.out.println("Auto" + x + "  " + y1 + " " + x % 2);
+                //System.out.println("Auto" + x + "  " + y1 + " " + x % 2);
 
                 sinPoints.add(p);
             }
@@ -237,7 +245,7 @@ public class EditionController implements Initializable {
                     y1 = 0;
                     p = new Points(x, y1);
                 }
-                System.out.println("nonAuto" + x + "  " + y1 + " " + x % 2);
+                //System.out.println("nonAuto" + x + "  " + y1 + " " + x % 2);
 
                 sinPoints.add(p);
             }

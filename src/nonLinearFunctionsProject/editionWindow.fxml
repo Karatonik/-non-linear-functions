@@ -31,12 +31,12 @@
                <children>
                   <VBox prefHeight="581.0" prefWidth="280.0">
                      <children>
-                        <Label fx:id="Labelb" alignment="CENTER" contentDisplay="CENTER" prefHeight="193.0" prefWidth="214.0" text="b =">
+                        <Label fx:id="Labela" alignment="CENTER" prefHeight="182.0" prefWidth="214.0" text="a =">
                            <font>
                               <Font name="Berlin Sans FB" size="40.0" />
                            </font>
                         </Label>
-                        <Label fx:id="Labela" alignment="CENTER" prefHeight="182.0" prefWidth="214.0" text="a =">
+                        <Label fx:id="Labelb" alignment="CENTER" contentDisplay="CENTER" prefHeight="193.0" prefWidth="214.0" text="b =">
                            <font>
                               <Font name="Berlin Sans FB" size="40.0" />
                            </font>
