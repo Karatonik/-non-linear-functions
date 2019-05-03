@@ -70,7 +70,9 @@ public class EditionController implements Initializable {
         if (!autoValue) {
             a = Double.valueOf(this.aField.getText());
             b = Double.valueOf(this.bField.getText());
-            c = Double.valueOf(this.cField.getText()); //napiać regex
+            if(MainController.select==1 ||MainController.select==2) {
+                c = Double.valueOf(this.cField.getText());
+            }
             maxI = Double.valueOf(this.max.getText());
             minI = Double.valueOf(this.min.getText());
             quanPI = Double.valueOf(this.quanPoints.getText());
