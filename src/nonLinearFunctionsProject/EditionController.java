@@ -78,37 +78,39 @@ public class EditionController implements Initializable {
     @FXML
     public void onActionShowButton() {
         Regex regex = new Regex();
+        sinPoints.clear();
+        ver = true;
 
         if (!autoValue) {
-            if (regex.Verification(this.aField.getText())||regex.Verification(this.bField.getText()) || regex.Verification(this.max.getText())||regex.Verification(this.min.getText())) {
+            if ((regex.Verification(this.aField.getText())) && (regex.Verification(this.bField.getText())) &&
+                    (regex.Verification(this.max.getText())) && (regex.Verification(this.min.getText()))) {
                 a = Double.valueOf(this.aField.getText());
                 b = Double.valueOf(this.bField.getText());
                 maxI = Double.valueOf(this.max.getText());
                 minI = Double.valueOf(this.min.getText());
-                ver=true;
+                ver = true;
             } else {
                 ver = false;
             }
             if (MainController.select == 1 || MainController.select == 2) {
-                if(regex.Verification(this.cField.getText())) {
+                if (regex.Verification(this.cField.getText())) {
                     c = Double.valueOf(this.cField.getText());
-                    ver=true;
-                }else {
-                    ver=false;
+                    ver = true;
+                } else {
+                    ver = false;
                 }
             }
             if (MainController.select != 4) {
                 if (regex.Verification(this.quanPoints.getText())) {
                     quanPI = Double.valueOf(this.quanPoints.getText());
-                    ver=true;
+                    ver = true;
                 } else {
                     ver = false;
                 }
             }
-                value = (maxI - minI) / quanPI;
+            value = (maxI - minI) / quanPI;
 
-        }
-        else {
+        } else {
             a = 1.0;
             b = 1.0;
             c = 0.0;
@@ -117,9 +119,10 @@ public class EditionController implements Initializable {
             quanPI = 1.0;
 
         }
-        if (!ver ||!autoValue) {
+        if (!ver) {
             this.test.setText("Nie poprawne dane");
         } else {
+            this.test.setText("poprawne");
             switch (MainController.select) {
                 case 1:
                     displaySinGraph(a, b, c, maxI, minI, quanPI);
