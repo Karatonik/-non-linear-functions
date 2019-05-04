@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nonLinearFunctionsProject.MainController">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nonLinearFunctionsProject.MainController">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -21,7 +21,7 @@
    <children>
       <AnchorPane prefHeight="420.0" prefWidth="800.0">
          <children>
-            <Label alignment="CENTER" layoutY="-1.0" prefHeight="122.0" prefWidth="800.0" text="description of program">
+            <Label alignment="CENTER" layoutY="-1.0" prefHeight="122.0" prefWidth="800.0" text="Program draws charts of following functions:">
                <font>
                   <Font name="Bell MT" size="36.0" />
                </font></Label>

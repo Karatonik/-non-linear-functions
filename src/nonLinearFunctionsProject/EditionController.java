@@ -11,8 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -251,7 +249,7 @@ public class EditionController implements Initializable {
             }
         }
 
-        funInit("functionGraphPulse.fxml", "Exp");
+        funInit("functionGraphPulse.fxml", "Pulse");
     }
 
     private void displayUnitGraph(double a, double b, double c, double maxI, double minI, double quanPI) {
@@ -272,7 +270,7 @@ public class EditionController implements Initializable {
                 sinPoints.add(p);
         }
 
-        funInit("functionGraph.fxml", "unite");
+        funInit("functionGraph.fxml", "unit");
     }
 
 
