@@ -45,6 +45,7 @@ public class MainController {
         stage.close();
         LoadFunction(stage);
     }
+
     public void LoadFunction(Stage stage){
         try{
             FXMLLoader fxmlLoader=new FXMLLoader();
