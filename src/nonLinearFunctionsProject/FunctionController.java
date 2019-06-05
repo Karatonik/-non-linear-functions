@@ -91,7 +91,7 @@ public class FunctionController implements Initializable {
             String x2 = x1.toString();
             series.getData().add(new XYChart.Data(x2, EditionController.sinPoints.get(x).y));
         }
-        GraphPulse.getData().addAll(series);
+        Graph.getData().addAll(series);
 
     }
 

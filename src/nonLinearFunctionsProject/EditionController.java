@@ -249,7 +249,7 @@ public class EditionController implements Initializable {
             }
         }
 
-        funInit("functionGraphPulse.fxml", "Pulse");
+        funInit("functionGraph.fxml", "Pulse");
     }
 
     private void displayUnitGraph(double a, double b, double c, double maxI, double minI, double quanPI) {
